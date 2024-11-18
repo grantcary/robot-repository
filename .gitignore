@@ -1,0 +1,14 @@
+__pycache__
+notebooks
+.*.swp
+.*.swo
+*.pyc
+build
+dist
+*.egg-info
+/env
+a.out
+boxes.jpg
+weights/*
+.vscode
+.DS_Store
