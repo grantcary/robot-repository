@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASIMO 2001</title>
+<style>
+    body {
+        font-family: Arial, sans-serif; /* Change this to your desired font family */
+        background-color: #ffffff;
+        color: #000000;
+
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .center-page {
+        max-width: 400px; /* Adjust this value as needed for your design */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+        width: 100%; /* Use full width of the body taking into account padding */
+    }
+
+    @media (max-width: 500px) {
+        body {
+            padding: 0; /* Remove padding on smaller screens */
+        }
+    }
+
+    .center-text {
+        text-align: center;
+    }
+
+    .center-image {
+        display: block;
+        margin: 0 auto; /* This centers the image horizontally */
+        max-width: 100%;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the images horizontally */
+    }
+
+    .image-container img {
+        width: 50%; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .video-wrapper {
+        position: relative;
+        height: 0;
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aspect-16-9 {
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .aspect-4-3 {
+        padding-bottom: 75%; /* 4:3 Aspect Ratio */
+    }
+
+    .btn {
+        background-color: #d1d1d1;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="center-page">
+        <img src="ASIMO.jpg" style="margin: 0 auto; display: block; max-width: 50%; padding: 25px 0;">
+        <table style="width:100%">
+            <tr>
+                <th><a class="btn" href="2000.html">2000</a></th>
+                <th><a class="btn" href="2001.html">2001</a></th>
+                <th><a class="btn" href="2002.html">2002</a></th>
+                <th><a class="btn" href="2003.html">2003</a></th>
+                <th><a class="btn" href="2004.html">2004</a></th>
+                <th><a class="btn" href="2005.html">2005</a></th>
+                <th><a class="btn" href="2007.html">2007</a></th>
+                <th><a class="btn" href="2011.html">2011</a></th>
+            </tr>
+        </table>
+        <div>
+            <h2>2001 (Updated Version 1)</h2>
+            <img src="2001/01.jpg" class="center-image">
+            <p>On November 12th, 2001, an announcement of a new ASIMO model was made.<sup><a href="#cite_note-01">[1]</a></sup> This new model is more of a revision of ASIMO 2000, geared towards being leased to customers for $150,000 a month. Looking back nearly a year prior, this seems to be the model talked about during Honda's announcement of its rental business.</p>
+            <p>By February 21, 2002, it was revealed that 20 ASIMO units had been built up to that point, all hand assembled in their research facility in Wako, Japan.<sup><a href="#cite_note-02">[2]</a></sup> A single unit costs just under $1 million to make.</p>
+            <img src="2001/07.jpg" class="center-image">
+            <p>On March 6th, 2002, IBM Japan was their first customer.<sup><a href="#cite_note-04">[4]</a></sup> The IBM Innovation Center in Tokyo leased ASIMO for a year to greet, take photos, and guide guests to meeting rooms.</p>
+        </div>
+        <br>
+        <div>
+            <h3>Hardware</h3>
+            <div class="image-container">
+                <img src="2001/02.jpg">
+                <img src="2001/03.jpg">    
+            </div>
+            <p>There have been a few changes to the hardware. First off, the weight has increased to 52 kg. I am unaware of where the weight gain has come from since it's not obvious from the outside and there doesn't seem to be any official mention of where it comes from. To speculate, since this revision was aimed to be manufactured in low volume, measures were most likely taken to make the internal structure more ridgid and robust. Heavier materials available in higher volume could have replaced ligher weight, low volume materials.</p>
+            <p>Next, the cable conduit that ran from the backpack to the back of the legs has been removed. Also, the design of the backpack changed, becoming sleaker and adding defined ventalation ducts.</p>
+            <div class="image-container">
+                <img src="2001/08.jpg">
+                <img src="2001/09.jpg">    
+            </div>
+            <p>Lastly, is the addition of a CCD camera positioned between the legs. This gave ASIMO a better sense of it's surroundings, now being able to track markers placed on the ground, making positioning easier and more accurate.<sup><a href="#cite_note-03">[3]</a></sup></p>
+        </div>
+        <br>
+        <div>
+            <h3>Software</h3>
+            <img src="2001/04.jpg" class="center-image">
+            <p>One of the biggest improvements would be to i-WALK, adding the capability of walking in three dimensions, making it possible to climb stairs and slopes. ASIMO 2000 also had the ability to climb stairs, however it was not adaptive. For it to work, every stair had to be within millimeter accuracy.<sup><a href="#cite_note-03">[3]</a></sup></p>
+            <p>With the help of IBM Japan, ASIMO now has some voice recognition and synthesis functions, using a customized version of IBM's ViaVoice software.<sup><a href="#cite_note-04">[4]</a></sup> It is capable of receiving voice instructions such as arm, hand, or walking movement, and can detect the direction of a person speaking and turn towards them to respond.<sup><a href="#cite_note-05">[5]</a></sup> Also, custom voice recognition hardware based on the ThinkPad was implemented.</p>
+            <p>Startup time was reduced from 40 minutes to 4 minutes. The time reduction comes from automating the manual tasks previously needed during startup, such as calibrating sensors and actuator limits.</p>
+            <p>ASIMO uses VxWorks as its real-time operating system.<sup><a href="#cite_note-06">[6]</a></sup></p>
+        </div>
+        <br>
+        <div>
+            <h3>Controls</h3>
+            <img src="2001/06.jpg" class="center-image">
+            <p>ASIMO can now be controlled by a single laptop over wireless LAN, no longer needing a workstation PC.</p>
+            <img src="2001/05.jpg" class="center-image">
+            <p>You can view ASIMO's perspective, monitor system information, and execute control commands through its GUI application.</p>
+        </div>
+        <br>
+        <div>
+            <h3>Appearances</h3>
+            <ul>
+                <li>February 14, 2002 - ASIMO rings NYSE bell</li>
+                <li>March 6, 2002 - ASIMO rented by IBM Japan</li>
+            </ul>
+        </div>
+        <br>
+        <div>
+            <h3>References</h3>
+            <ol>
+                <li id="cite_note-01"><a href="https://global.honda/en/newsroom/news/2001/c011112-eng.html">Honda Introduces New ASIMO Humanoid Robot for Rental Business</a></li>
+                <li id="cite_note-02"><a href="https://www.forbes.com/2002/02/21/0221tentech.html?sh=2b10ba9bf3eb">Say Hello To Asimo</a></li>
+                <li id="cite_note-03"><a href="https://ascii.jp/elem/000/000/327/327357/">Honda unveils "ASIMO" for rental business -- ASIMO becomes a companion!?</a></li>
+                <li id="cite_note-04"><a href="https://www.itmedia.co.jp/news/0203/06/ibm_asimo.html">"This is IBM's ASIMO" -- Trying out customer service at the Hakozaki facility</a></li>
+                <li id="cite_note-05"><a href="https://www.itmedia.co.jp/news/bursts/0111/12/honda.html">Honda unveils rental "ASIMO" that also supports voice commands</a></li>
+                <li id="cite_note-06"><a href="https://www.bizjournals.com/eastbay/stories/2002/09/09/story4.html">Wind River finds new niche for software</a></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
