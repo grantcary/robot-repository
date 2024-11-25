@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robot repository - Atlas - PetProto</title>
+<link rel="icon" type="image/x-icon" href="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/favicon.ico">
+<style>
+    body {
+        font-family: monospace; /* Change this to your desired font family */
+        background-color: #ffffff;
+        color: #000000;
+
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .center-page {
+        max-width: 400px; /* Adjust this value as needed for your design */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+        width: 100%; /* Use full width of the body taking into account padding */
+    }
+
+    @media (max-width: 500px) {
+        body {
+            padding: 0; /* Remove padding on smaller screens */
+        }
+    }
+
+    .center-text {
+        text-align: center;
+    }
+
+    .center-image {
+        display: block;
+        margin: 0 auto; /* This centers the image horizontally */
+        max-width: 100%;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the images horizontally */
+    }
+
+    .image-container img {
+        width: 50%; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .iframe-wrapper {
+        position: relative;
+        height: 0;
+    }
+    
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-wrapper {
+        position: relative;
+        height: 0;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aspect-16-9 {
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .aspect-4-3 {
+        padding-bottom: 75%; /* 4:3 Aspect Ratio */
+    }
+
+    .btn {
+        background-color: #d1d1d1;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    table.custom-align td:first-child, table.custom-align th:first-child {
+      text-align: left;
+    }
+
+    table.custom-align td:last-child, table.custom-align th:last-child {
+      text-align: right;
+    }
+
+</style>
+</head>
+<body>
+    <div class="center-page">
+        <table style="width:100%" class="custom-align">
+            <tr>
+                <th><a href="../index.html"><img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob"></a></th>
+                <th><h3>Atlas</h3></th>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <th><a class="btn" href="petman.html">PETMAN</a></th>
+                <th><a class="btn" href="atlas.html">Atlas</a></th>
+                <th><a class="btn" href="drc.html">DRC</a></th>
+                <th><a class="btn" href="hd.html">HD</a></th>
+                <th><a class="btn" href="electric.html">Electric</a></th>
+            </tr>
+        </table>
+        <div>
+            <h2>Electric</h2>
+            <img src="11.jpg" class="center-image">
+            <p>On Apr 17th, 2024, Boston Dynamics released a video announcing an all new, fully electric Atlas, just a day after announcing the retirement of its hydraulicly actuated HD Atlas.</p>
+            <p></p>
+        </div>
+        <div>
+            <h3>Hardware</h3>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/29ECwExc-_M?si=UowLKWTFH_8fnkEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>As you can see in the announcment video, Atlas now has something called hypermobility, meaning some joints are capable of rotating 360 degrees continuously. This new flexibility is enabled by slip rings placed at joints that are meant to be continuous, such as the head and torso. Apparently, many of Atlas' joints are continuous.</p>
+            <p>A new torso design allows Atlas to lean forward and side to side, adding flexibility to the abdomen. You can see this in action when Atlas squats down to pick things up that are low to the ground. The mechanical design of this joint is similar to Figure's 01 robot. The top and bottom half of the body are connected by a uninversal joint, then driven by two motors configured in a differntial pair. So when both motors contract, Atlas will lean forward. If the motors are activated in oposite directions, it will lean to the side where the motor is contracting.</p>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/F_7IPm7f1vI?si=ZOqYjzuX9-WviL8u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
