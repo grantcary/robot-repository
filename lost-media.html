@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>robot repository</title>
+<title>robot repository - Lost Media</title>
 <link rel="icon" type="image/x-icon" href="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/favicon.ico">
 <style>
     body {
@@ -48,25 +48,12 @@
         height: auto; /* Maintain aspect ratio */
     }
 
-    .iframe-wrapper {
-        position: relative;
-        height: 0;
-    }
-    
-    .iframe-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
     .video-wrapper {
         position: relative;
         height: 0;
     }
 
-    .video-wrapper video {
+    .video-wrapper iframe {
         position: absolute;
         top: 0;
         left: 0;
@@ -93,52 +80,46 @@
         cursor: pointer;
     }
 
-    td:first-child, th:first-child {
-        text-align: left;
+    table.custom-align td:first-child, table.custom-align th:first-child {
+      text-align: left;
     }
 
-    td:last-child, th:last-child {
-        text-align: right;
+    table.custom-align td:last-child, table.custom-align th:last-child {
+      text-align: right;
     }
 
 </style>
 </head>
 <body>
     <div class="center-page">
-        <br>
-        <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob" class="center-image">
-        <h3 class="center-text">ROBOT REPOSITORY</h3>
-        <br>
+        <table style="width:100%" class="custom-align">
+            <tr>
+                <th><a href="index.html"><img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob"></a></th>
+                <th><h3>ASIMO</h3></th>
+            </tr>
+        </table>
         <div>
-            <table style="width:100%">
-                <tr>
-                    <th><h3>ASIMO</h3></th>
-                    <th><a href="asimo/2000.html">Read more</a></th>
-                </tr>
-            </table>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo.jpg" class="center-image">
+            <h2>Lost Media</h2>
         </div>
         <br>
-        <br>
         <div>
-            <table style="width:100%">
-                <tr>
-                    <th><h3>Atlas</h3></th>
-                    <th><a href="atlas/petman.html">Read more</a></th>
-                </tr>
-            </table>
-            <img src="atlasjump.jpg" class="center-image">
-        </div>
-        <br>
-        <br>
-        <div>
-            <table style="width:35%">
-                <tr>
-                    <th><a style="color:#000000;" href="https://grantcary.com">about</a></th>
-                    <th><a style="color:#000000;" href="references.html">references</a></th>
-                    <th><a style="color:#000000;" href="lost-media.html">lostmedia</a></th>
-                </tr>
-            </table>
+            <ul>
+                <li><b>ROBODEX 2000 Magazine</b></li>
+                <img src="https://i.imgur.com/5uAVkdp.png" class="center-image">
+                <p>Description: Yellow magazine cover, "ROBODEX 2000" title, front image depicts a Honda P3 standing behind another white humanoid robot, it is possible there are more robots on the cover, but are blocked by the child's hand</p>
+                <p>Sighting: ROBODEX 2000 recap video included with the ROBODEX 2002 guidebook DVD at 5:07</p>
+                <ul>
+                    <li><a href="https://youtu.be/4Q3E-GB5FyU?si=VKK5YiG58fL5za7b&t=307">ROBODEX 2000 Digest - youtube.com</a></li>
+                </ul>
+                <br>
+                <li><b>ASIMO Adventures Game</b></li>
+                <img src="https://i.imgur.com/85MhZ12.jpeg" class="center-image">
+                <p>Description: Side scroller game, Honda ASIMO playable character, avoid obstacles to rescue a lost puppy, game not released, exhibited at events, unknown game platform</p>
+                <p>Sighting: Honda ASIMO booth Robofesta Kanagawa 2001</p>
+                <ul>
+                    <li><a href="https://ascii.jp/elem/000/000/327/327471/">Robofesta Kanagawa 2001 - ascii.jp</a></li>
+                </ul>
+            </ul>
         </div>
     </div>
 </body>
