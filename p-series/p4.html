@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robot repository - P4</title>
+<link rel="icon" type="image/x-icon" href="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/favicon.ico">
+<style>
+    body {
+        font-family: monospace; /* Change this to your desired font family */
+        background-color: #ffffff;
+        color: #000000;
+
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .center-page {
+        max-width: 400px; /* Adjust this value as needed for your design */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+        width: 100%; /* Use full width of the body taking into account padding */
+    }
+
+    @media (max-width: 500px) {
+        body {
+            padding: 0; /* Remove padding on smaller screens */
+        }
+    }
+
+    .center-text {
+        text-align: center;
+    }
+
+    .center-image {
+        display: block;
+        margin: 0 auto; /* This centers the image horizontally */
+        max-width: 100%;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the images horizontally */
+    }
+
+    .image-container img {
+        width: 50%; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .iframe-wrapper {
+        position: relative;
+        height: 0;
+    }
+    
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-wrapper {
+        position: relative;
+        height: 0;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aspect-16-9 {
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .aspect-4-3 {
+        padding-bottom: 75%; /* 4:3 Aspect Ratio */
+    }
+
+    .btn {
+        background-color: #d1d1d1;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    table.custom-align td:first-child, table.custom-align th:first-child {
+      text-align: left;
+    }
+
+    table.custom-align td:last-child, table.custom-align th:last-child {
+      text-align: right;
+    }
+
+</style>
+</head>
+<body>
+    <div class="center-page">
+        <table style="width:100%" class="custom-align">
+            <tr>
+                <th><a href="../index.html"><img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob"></a></th>
+                <th><h3>Honda P Series</h3></th>
+            </tr>
+        </table>
+        <table style="width:100%">
+            <tr>
+                <th><a class="btn" href="../index.html">P1</a></th>
+                <th><a class="btn" href="../index.html">P2</a></th>
+                <th><a class="btn" href="../index.html">P3</a></th>
+                <th><a class="btn" href="p4.html">P4</a></th>
+            </tr>
+        </table>
+        <div>
+            <h2>P4</h2>
+            <img src="https://i.imgur.com/lu8pn5p.jpeg" class="center-image">
+            <p>Never officially announced, P4 was a prototype that existed sometime between 1998 and 2000. There have only been a few sightings of this robot since the knowledge of it's existence, all of which I will list. It's first and most showing appearance was in an NHK documentary series called Beyond the Century. The episode "How Human-Like Robots Can We Get?" (ロボット　どこまで人間に近づけるのか) aired on October 15th, 2000, and showed a detailed look into the labratory and testing methods used for P4 and other Honda robots. It's second appearance was on Honda's Japanese website in November of 2000 and went by a different name, "P3 Improved Prototype" (P3改良型試作機). The third appearance was in a PBS documentary special called "Beyond Human", which showed some more testing footage in the lab. It's final appearance was in 2010 where it was put on display (along with other Honda robots) in the Honda Collection Hall at Twin Ring Motegi.</p>
+            <p>To speculate on P4, based on it's years in development, it was mostlikely co-developed alongside ASIMO, if not just ahead of ASIMO. You can see a lot of similarities between the two; smaller body, rounder exerior, astronaut-style front visor (similar but different to P3). The seperate development teams would have cross polinated ideas and technical improvements.</p>
+            <div class="iframe-wrapper aspect-4-3">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/DmkwAIa7V7U?si=OEI3jBIp6ETegSg7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h3>Hardware</h3>
+            <div class="image-container">
+                <img src="https://i.imgur.com/NdT3ZlN.gif">
+                <img src="https://i.imgur.com/4T8vgb1.gif">
+            </div>
+            <p>P4's height is 160 cm, and weights 80 kg. Compaired to P3's 30 DoF, P4 now has 34 Dof. The shoulders are mounted at a slight angle for greater range of motion, and can now most likely raise it's arms higher than it's shoulders.</p>
+            <!-- <img src="https://i.imgur.com/Cd72drs.gif" class="center-image"> -->
+            <img src="https://i.imgur.com/bGfOgrg.gif" class="center-image">
+            <p>The first newly added DoF is located at the hips, acting as a waist roll. This enables smooth walking.</p>
+            <img src="https://i.imgur.com/C36thoe.gif" class="center-image">
+            <p>Another new DoF, located in the mid chest region, acts as a spine twisting motion. It now has a greater working range of motion.</p>
+            <img src="https://i.imgur.com/hWiSdDp.jpeg" class="center-image">
+            <p>The last 2 DoF are on the hands. The thumbs can now actuate in or out from the hand, similar to a thumb MCP flection.</p>
+            <img src="https://i.imgur.com/iIlWY1j.jpeg" class="center-image">
+            <p>You can see that the backpack is split into two, allowing P4 to twist it's upperbody freely. It is unknown officially what half contains the battery and what half contains the computer.</p>
+            <div class="image-container">
+                <img src="https://i.imgur.com/Ju4Eb8X.jpeg">
+                <img src="https://i.imgur.com/vE6fny8.jpeg">
+            </div>
+            <p>Something that leads me to believe that the computer is in the upper half of the backpack are two things. First, the I/O, power switches, emergency shutoff, and wireless antennas are located in the top half. Now, those items are usually not that hard to relocate away from the main computers making my theory faulty, but it is a possibility. Secondly (and more convincingly), with the battery being as heavy as it is, you would want that to be as close to the center of gravity as possible.</p>
+            <img src="https://i.imgur.com/TWLB08f.gif" class="center-image">
+            <p>From observation, the stereo camera/tilt head mount seem to be very similar to P3.</p>
+            <div class="image-container">
+                <img src="https://i.imgur.com/WySDh0p.gif">
+                <img src="https://i.imgur.com/HQqniky.gif">
+            </div>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/V8feyOyIDmg?si=cJLVAO5CJ-ox1caD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h3>Software</h3>
+            <p>P4 walking is very similar to ASIMO 2000</p>
+        </div>
+        <br>
+        <div>
+            <h3>Appearances</h3>
+
+        </div>
+        <br>
+        <div>
+            <h3>References</h3>
+            <ol>
+                <li id="cn-01"><a href="https://tachilab.org/content/files/publication/ic/tachi200305VRIC.pdf">Telexistence and Retro-reflective Projection Technology (RPT) </a></li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

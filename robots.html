@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robot repository</title>
+<link rel="icon" type="image/x-icon" href="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/favicon.ico">
+<style>
+    body {
+        font-family: monospace; /* Change this to your desired font family */
+        background-color: #ffffff;
+        color: #000000;
+
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .center-page {
+        max-width: 400px; /* Adjust this value as needed for your design */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+        width: 100%; /* Use full width of the body taking into account padding */
+    }
+
+    @media (max-width: 500px) {
+        body {
+            padding: 0; /* Remove padding on smaller screens */
+        }
+    }
+
+    .center-text {
+        text-align: center;
+    }
+
+    .center-image {
+        display: block;
+        margin: 0 auto; /* This centers the image horizontally */
+        max-width: 100%;
+    }
+
+    .table-align {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .table-align td {
+        width: 50%;
+    }
+
+    .profile-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        /* border-radius: 50%; */
+        display: block;
+        padding: 0 10px;
+    }
+
+    .profile-table .profile-name {
+        display: block;
+        text-align: left;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the images horizontally */
+    }
+
+    .image-container img {
+        width: 50%; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .iframe-wrapper {
+        position: relative;
+        height: 0;
+    }
+    
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-wrapper {
+        position: relative;
+        height: 0;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aspect-16-9 {
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .aspect-4-3 {
+        padding-bottom: 75%; /* 4:3 Aspect Ratio */
+    }
+
+    .btn {
+        background-color: #d1d1d1;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .article-table td:first-child,
+    .article-table th:first-child {
+        text-align: left;
+    }
+
+    .article-table td:last-child,
+    .article-table th:last-child {
+        text-align: right;
+    }
+
+/* 
+    table.custom-align td:first-child, table.custom-align th:first-child {
+      text-align: left;
+    }
+
+    table.custom-align td:last-child, table.custom-align th:last-child {
+      text-align: right;
+    } */
+
+</style>
+</head>
+<body>
+    <div class="center-page">
+        <br>
+        <a href="index.html"><img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob" class="center-image"></a>
+        <h3 class="center-text">ROBOT REPOSITORY</h3>
+        <table style="width:100%" class="article-table">
+            <tr>
+                <th><a class="btn" href="robots.html">Robots</a></th>
+                <th><a class="btn" href="series.html">Series</a></th>
+                <th><a class="btn" href="references.html">References</a></th>
+                <th><a class="btn" href="lost-and-found.html">Lost & Found</a></th>
+                <th><a class="btn" href="about.html">About</a></th>
+            </tr>
+        </table>
+        <h1>ROBOTS</h1>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2000.html"><img src="https://i.imgur.com/EHNFHNu.jpeg" class="profile-image" alt="ASIMO 2000 Profile Photo"></a></th>
+                            <th><a href="asimo/2000.html" class="profile-name">ASIMO 2000</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2001.html"><img src="https://i.imgur.com/rCNSSnm.jpeg" class="profile-image" alt="ASIMO 2001 Profile Photo"></a></th>
+                            <th><a href="asimo/2001.html" class="profile-name">ASIMO 2001</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2002.html"><img src="https://i.imgur.com/LXFYNeD.jpeg" class="profile-image" alt="ASIMO 2002 Profile Photo"></a></th>
+                            <th><a href="asimo/2002.html" class="profile-name">ASIMO 2002</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2003.html"><img src="https://i.imgur.com/bguYrGk.jpeg" class="profile-image" alt="ASIMO 2003 Profile Photo"></a></th>
+                            <th><a href="asimo/2003.html" class="profile-name">ASIMO 2003</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2004.html"><img src="https://i.imgur.com/cH7T1VG.jpeg" class="profile-image" alt="ASIMO 2004 Profile Photo"></a></th>
+                            <th><a href="asimo/2004.html" class="profile-name">ASIMO 2004</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2005.html"><img src="https://i.imgur.com/XErtBKI.jpeg" class="profile-image" alt="ASIMO 2005 Profile Photo"></a></th>
+                            <th><a href="asimo/2005.html" class="profile-name">ASIMO 2005</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2007.html"><img src="https://i.imgur.com/1zTkyt5.jpeg" class="profile-image" alt="ASIMO 2007 Profile Photo"></a></th>
+                            <th><a href="asimo/2007.html" class="profile-name">ASIMO 2007</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="asimo/2011.html"><img src="https://i.imgur.com/x5uvh3N.jpeg" class="profile-image" alt="ASIMO 2011 Profile Photo"></a></th>
+                            <th><a href="asimo/2011.html" class="profile-name">ASIMO 2011</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="hrp/hrp-1.html"><img src="https://i.imgur.com/FBupDfm.jpeg" class="profile-image" alt="HRP-1 Profile Photo"></a></th>
+                            <th><a href="hrp/hrp-1.html" class="profile-name">HRP-1</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="hrp/hrp-1.html"><img src="https://i.imgur.com/YHk22cT.jpeg" class="profile-image" alt="HRP-1S Profile Photo"></a></th>
+                            <th><a href="hrp/hrp-1.html" class="profile-name">HRP-1S</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="atlas/atlas.html"><img src="https://i.imgur.com/Dt3plip.jpeg" class="profile-image" alt="Atlas Profile Photo"></a></th>
+                            <th><a href="atlas/atlas.html" class="profile-name">Atlas</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="atlas/drc.html"><img src="https://i.imgur.com/iV5O99W.jpeg" class="profile-image" alt="Atlas DRC Profile Photo"></a></th>
+                            <th><a href="atlas/drc.html" class="profile-name">Atlas DRC</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="atlas/hd.html"><img src="https://i.imgur.com/hohz885.jpeg" class="profile-image" alt="Atlas HD Profile Photo"></a></th>
+                            <th><a href="atlas/hd.html" class="profile-name">Atlas HD</a></th>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <th><a href="atlas/electric.html"><img src="https://i.imgur.com/NOgIc8y.jpeg" class="profile-image" alt="Atlas Electric Profile Photo"></a></th>
+                            <th><a href="atlas/electric.html" class="profile-name">Atlas Electric</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            <table style="width:100%" class="table-align">
+                <tr>
+                    <td>
+                        <table>
+                            <th><a href="p-series/p4.html"><img src="https://i.imgur.com/3GWLHY1.jpeg" class="profile-image" alt="Honda P4 Profile Photo"></a></th>
+                            <th><a href="p-series/p4.html" class="profile-name">Honda P4</a></th>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+    </div>
+</body>
+</html>
