@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>robot repository - ASIMO 2002</title>
-<link rel="icon" type="image/x-icon" href="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/favicon.ico">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
 <style>
     body {
         font-family: monospace; /* Change this to your desired font family */
@@ -107,7 +107,7 @@
     <div class="center-page">
         <table style="width:100%" class="custom-align">
             <tr>
-                <th><a href="../index.html"><img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/robo.png" width="64" height="64" alt="rob"></a></th>
+                <th><a href="../index.html"><img src="../robo.png" width="64" height="64" alt="rob"></a></th>
                 <th><h3>ASIMO</h3></th>
             </tr>
         </table>
@@ -125,7 +125,7 @@
         </table>
         <div>
             <h2>2002 (Version 1.5)</h2>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/01.jpg" class="center-image">
+            <img src="https://i.imgur.com/GyFjSnk.jpeg" class="center-image">
             <p>On December 5th, 2002, ASIMO's overall system architecture as been redeveloped with a focus on visual and planning intelligence. Now it can track and recognize faces, as well as follow human gestures, like moving to where someone is pointing to or halting in place.<sup><a href="#cite-note-1">[1]</a></sup> It could also recognize the posture of a person and recognize its environment.<sup><a href="#cite-note-2">[2]</a></sup> With added internet connectivity, its able to provide news and weather updates. Rental of this new version started January 2003.</p>
             <p>In the January 2004 issue of AS+F magazine, Honda said that around 26 ASIMO units had been built up to that point, including spares.<sup><a href="#cite-note-6">[6]</a></sup> There were 5 at Honda's facilities, 7 assigned to various companies, also with units in the U.S., Thailand, Germany, and Belgium, each having a backup machine. They also mentioned that there were unofficial ASIMO units at the Wako research center.</p>
         </div>
@@ -134,29 +134,27 @@
             <h3>Hardware</h3>
             <p>Stereo SONY XC-ES alternate 1/3" color CCDs have replaced the cameras that were previously only used for monitoring, and a Mobile Pentium III-M 1.2GHz handles image processing.<sup><a href="#cite-note-4">[4]</a></sup></p>
             <p>Three separate processors handle image processing, speech recognition and synthesis, and control and planning respectively. A PCI bus is used to interconnect them.</p>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/05.jpg" class="center-image">
+            <img src="https://i.imgur.com/Q5iNA3h.jpeg" class="center-image">
             <div class="image-container">
-                <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/06.jpg">
-                <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/07.jpg">
+                <img src="https://i.imgur.com/Qc3hBIl.jpeg">
+                <img src="https://i.imgur.com/fAcsovN.jpeg">
             </div>
             <p>It was possible for ASIMO to be connected via direct attach cable for video output of it's vision, along with data overlays.<sup><a href="#cite-note-3">[3]</a></sup> It seems to use something like a D-Sub 15 pin display cable.</p>
         </div>
         <br>
         <div>
             <h3>Software</h3>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/02.jpg" class="center-image">
+            <img src="https://i.imgur.com/O0OP7OA.jpeg" class="center-image">
             <p>The image pipeline starts with the stereo cameras mounted on ASIMO's head. These color CCD cameras capture stereo images, which are then converted to black and white by the frame grabber to generate a depth map. To accurately utilize the images captured, the position of the cameras is determined by calculating the joint angles of ASIMO. With this information, 3D objects and moving objects are extracted by processing the images from the frame grabber on the vision computer, which sends the necessary data to the navigation and interaction systems. Since the camera pose is determined, the system can estimate the distance and direction of objects. ASIMO stores the bounding boxes of the extracted objects in its local map, which is necessary for obstacle avoidance and planning detours.<sup><a href="#cite-note-4">[4]</a></sup></p>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/03.jpg" class="center-image">
+            <img src="https://i.imgur.com/A8UIab9.jpeg" class="center-image">
             <br>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/04.jpg" class="center-image">
+            <img src="https://i.imgur.com/sVTyFBW.jpeg" class="center-image">
             <p>To track humans, they need to be extracted from the image. First, one alogrithm seperates the foreground from the image, then another extracts human shapes, making sure to seperate individual people. Face detection then uses skin color to identify face contours.</p>
             <p>There are two gesture recognition systems. The first is 2D, recognizing gestures including handshake, hand circling, bye-bye, hand swing, high-hand and come here call. And the second is 3D, recognizing pointing gestures, using the head and hand positional relationship and the depth map to then move to the desired location.</p>
             <p>ASIMO is capable of storing and identifying about 10 people. The database of faces and the details along with them are stored on the external management system.</p>
             <p>Lastly, the planning system is behavior based, allowing flexibility and modularity, making reactive in rapidly changing environments. For preplanned routes, ASIMO interfaces with an external map management system located offline</p>
-            <div class="video-wrapper aspect-16-9">
-                <video width="320" height="240" controls>
-                    <source src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/01v.mp4" type="video/mp4">
-                </video>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pb2PIW0TQ5o?si=UcDad1NmThI7S9Vn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
         <br>
@@ -168,15 +166,15 @@
         <br>
         <div>
             <h3>Ancillary Equipent</h3>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/08.jpg" class="center-image">
+            <img src="https://i.imgur.com/DqxDup6.jpeg" class="center-image">
             <p>Taken backstage at Robodex 2003, this shows how charging took place between performances.<sup><a href="#cite-note-9">[9]</a></sup></p>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/09.jpg" class="center-image">
+            <img src="https://i.imgur.com/21qtXJj.jpeg" class="center-image">
             <p>And this is the protective travel case for ASIMO and its peripherals.<sup><a href="#cite-note-5">[5]</a></sup></p>
         </div>
         <br>
         <div>
             <h3>Variations</h3>
-            <img src="https://omnimedia.sfo3.cdn.digitaloceanspaces.com/asimo/2002/10.jpg" class="center-image">
+            <img src="https://i.imgur.com/GcuugrM.jpeg" class="center-image">
             <p>Color variations include gray, green, red, blue and navy.</p>
             <div class="iframe-wrapper aspect-4-3">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/tgtPach43yM?si=H6t6PsJMyAbiE8ts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
