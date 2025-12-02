@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robot repository - E2-DR</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+    body {
+        font-family: monospace; /* Change this to your desired font family */
+        background-color: #ffffff;
+        color: #000000;
+
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .center-page {
+        max-width: 400px; /* Adjust this value as needed for your design */
+        margin: 0 auto; /* Auto margins for horizontal centering */
+        width: 100%; /* Use full width of the body taking into account padding */
+    }
+
+    @media (max-width: 500px) {
+        body {
+            padding: 0; /* Remove padding on smaller screens */
+        }
+    }
+
+    .center-text {
+        text-align: center;
+    }
+
+    .center-image {
+        display: block;
+        margin: 0 auto; /* This centers the image horizontally */
+        max-width: 100%;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the images horizontally */
+    }
+
+    .image-container img {
+        width: 50%; /* Adjust image width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .iframe-wrapper {
+        position: relative;
+        height: 0;
+    }
+    
+    .iframe-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-wrapper {
+        position: relative;
+        height: 0;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .aspect-16-9 {
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .aspect-4-3 {
+        padding-bottom: 75%; /* 4:3 Aspect Ratio */
+    }
+
+    .btn {
+        background-color: #d1d1d1;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    table.custom-align td:first-child, table.custom-align th:first-child {
+      text-align: left;
+    }
+
+    table.custom-align td:last-child, table.custom-align th:last-child {
+      text-align: right;
+    }
+
+</style>
+</head>
+<body>
+    <div class="center-page">
+        <table style="width:100%" class="custom-align">
+            <tr>
+                <th><a href="index.html"><img src="robo.png" width="64" height="64" alt="rob"></a></th>
+                <th><h3>E2-DR</h3></th>
+            </tr>
+        </table>
+        <div>
+            <h2>Honda E2-DR</h2>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/uat8laSf7gc?si=itgvDx69fVtWqR6D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>On October 2nd during IROS 2017, Honda published the paper "Development of Experimental Legged Robot for Inspection and Disaster Response in Plants", giving a glimpse into what Honda R&D had been working on as a redirection of the ASIMO project. E2-DR is a robot designed for disaster response (hence the "DR" in E2-DR), meaning that from the ground up, it needed to be durable, capable, and reliable.</p>
+            <p>This robot was born from aftermath of the Fukushima disaster. With not a single robot capable of entering the dangerous landscape, Honda started switching gears away from the ASIMO project as we knew it, and refocusing efforts into something that could be put to practical use.</p>
+        </div>
+        <div>
+            <h3>Prototypes</h3>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Sta-1gPrRSQ?si=JZ2UVnbQGqA6uhPK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>The first experimentation with this robot line was the E series-like robot with ASIMO legs and a laser range finder, along with better terrain navigation software, shown off in the same NHK documentary.</p>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/794YNdvOgKI?si=lROAM6cEJj0ZJbN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p>Prototype mockup first seen in NHK documentary robot revolution airing in 2014, the design more akin to the Honda P series with a blend of ASIMO</p>
+            <img src="https://i.imgur.com/6r2i00p.jpeg" class="center-image">
+            <br>
+            <img src="https://i.imgur.com/89o09L1.png" class="center-image">
+            <br>
+        </div>
+        <div>
+            <h3>Hardware</h3>
+            <img src="https://i.imgur.com/K76QRBn.png" class="center-image">
+            <img src="https://i.imgur.com/37b2s4N.png" class="center-image">
+            <p>With the purpose of this robot being to work in disaster response scenarios, the head is packed full of sensors that allow it to see in many different ways. First, it has two rotating Hokuyo UTM30LX-EW laser range finders, gathering a point cloud of E2-DR's surroundings. Secondly, it has a stereo camera/infrared light projector package allowing it to see in the dark. The last two are a SwissRanger SR4000 TOF (time-of-flight) camera and a monocular camera that can sync to an LED flash, illuminating the scene.</p>
+        </div>
+    </div>
+</body>
+</html>
