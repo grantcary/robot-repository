@@ -120,6 +120,7 @@
             <p>On October 2nd during IROS 2017, Honda published the paper "Development of Experimental Legged Robot for Inspection and Disaster Response in Plants", giving a glimpse into what Honda R&D had been working on as a redirection of the ASIMO project. E2-DR is a robot designed for disaster response (hence the "DR" in E2-DR), meaning that from the ground up, it needed to be durable, capable, and reliable.</p>
             <p>This robot was born from aftermath of the Fukushima disaster. With not a single robot capable of entering the dangerous landscape, Honda started switching gears away from the ASIMO project as we knew it, and refocusing efforts into something that could be put to practical use.</p>
         </div>
+        <br>
         <div>
             <h3>Prototypes</h3>
             <div class="iframe-wrapper aspect-16-9">
@@ -129,17 +130,23 @@
             <div class="iframe-wrapper aspect-16-9">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/794YNdvOgKI?si=lROAM6cEJj0ZJbN7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <p>Prototype mockup first seen in NHK documentary robot revolution airing in 2014, the design more akin to the Honda P series with a blend of ASIMO</p>
+            <p>Prototype mockup first seen in NHK documentary robot revolution airing in 2014, the design more akin to the Honda P series with a blend of ASIMO.</p>
             <img src="https://i.imgur.com/6r2i00p.jpeg" class="center-image">
-            <br>
+            <p>The first official E2-DR prototype was built to accommodate the desired dynamic movements. It stood 1.675 m tall and weighed 85 kg. It had a total of 33 degrees of freedom (DOF): 6 per leg, 8 per arm, 1 per hand, 2 in the torso, and 1 for the neck.</p>
             <img src="https://i.imgur.com/89o09L1.png" class="center-image">
-            <br>
+            <p>According to the paper "Dynamic Gait Transition between Bipedal and Quadrupedal Locomotion", the initial goal for the new hardware to achieve was a gait transition from walking to crawling. The planning and control alorithm is an extention of ASIMO's planning and control which allows it to transition from running, walking and jumping smoothly. The papter "Robust Vertical Ladder Climbing and Transitioning between Ladder and Catwalk for Humanoid Robots" outlines their approach for transitioning to a ladder and climbing.</p>
         </div>
+        <br>
         <div>
-            <h3>Hardware</h3>
+            <h3>E2-DR Hardware</h3>
             <img src="https://i.imgur.com/K76QRBn.png" class="center-image">
             <img src="https://i.imgur.com/37b2s4N.png" class="center-image">
             <p>With the purpose of this robot being to work in disaster response scenarios, the head is packed full of sensors that allow it to see in many different ways. First, it has two rotating Hokuyo UTM30LX-EW laser range finders, gathering a point cloud of E2-DR's surroundings. Secondly, it has a stereo camera/infrared light projector package allowing it to see in the dark. The last two are a SwissRanger SR4000 TOF (time-of-flight) camera and a monocular camera that can sync to an LED flash, illuminating the scene.</p>
+            <div class="iframe-wrapper aspect-16-9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/5lZ1bTGCZpQ?si=RA_P6QbNF8nP4HTm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <br>
+            <br>
         </div>
     </div>
 </body>
