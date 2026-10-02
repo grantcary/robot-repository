@@ -1,4 +1,4 @@
-{#- Single template for every page. Pure HTML + CSS: no scripts. -#}
+{#- Single template for every page. HTML + CSS; the only script is the dark mode toggle. -#}
 {%- macro toc_list(items) -%}
 <ol>
 {%- for item in items %}
@@ -21,6 +21,7 @@
 {%- endif %}
 <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | url }}">
 <link rel="stylesheet" href="{{ 'css/wiki.css' | url }}">
+<script src="{{ 'js/theme.js' | url }}"></script>
 </head>
 <body{% if page.is_homepage %} class="home"{% endif %}>
 <div id="page">
@@ -35,6 +36,7 @@
       {%- for item in nav %}
       <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
       {%- endfor %}
+      <button type="button" id="theme-toggle" class="btn theme-toggle" hidden>Dark mode</button>
     </nav>
     {%- if page_header %}
     <div class="series">

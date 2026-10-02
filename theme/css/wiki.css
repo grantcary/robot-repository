@@ -1,6 +1,7 @@
 /* robot repository
    Early-2000s wiki, same bones as the original hand-written site:
-   monospace, white page, grey bevelled buttons, blue links. No JavaScript. */
+   monospace, white page, grey bevelled buttons, blue links. The only script
+   is js/theme.js, for the dark mode toggle. */
 
 :root {
   --fg: #000;
@@ -15,6 +16,56 @@
   --hilite: #fff6bf;
   --bevel-light: #fff;
   --bevel-dark: #777;
+  --hover: #c00;
+  --btn-hover: #e4e4e4;
+  --rule-light: #d2d2d2;
+  color-scheme: light;
+}
+
+/* dark palette: follows the OS unless the toggle picked light, or forced by
+   the toggle picking dark. Keep the two blocks identical. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fg: #e2e2e2;
+    --bg: #161616;
+    --link: #7fa8f0;
+    --visited: #b598e0;
+    --muted: #a0a0a0;
+    --rule: #5c5c5c;
+    --panel: #222;
+    --btn: #3a3a3a;
+    --btn-active: #2a2a2a;
+    --hilite: #4a4210;
+    --bevel-light: #6a6a6a;
+    --bevel-dark: #111;
+    --hover: #ff7a7a;
+    --btn-hover: #474747;
+    --rule-light: #3a3a3a;
+    --logo-filter: invert(1);
+    --logo-blend: lighten;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fg: #e2e2e2;
+  --bg: #161616;
+  --link: #7fa8f0;
+  --visited: #b598e0;
+  --muted: #a0a0a0;
+  --rule: #5c5c5c;
+  --panel: #222;
+  --btn: #3a3a3a;
+  --btn-active: #2a2a2a;
+  --hilite: #4a4210;
+  --bevel-light: #6a6a6a;
+  --bevel-dark: #111;
+  --hover: #ff7a7a;
+  --btn-hover: #474747;
+  --rule-light: #3a3a3a;
+  --logo-filter: invert(1);
+  --logo-blend: lighten;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -33,7 +84,7 @@ body {
 
 a { color: var(--link); }
 a:visited { color: var(--visited); }
-a:hover { color: #c00; }
+a:hover { color: var(--hover); }
 
 img { max-width: 100%; height: auto; }
 
@@ -58,7 +109,14 @@ img { max-width: 100%; height: auto; }
   border-bottom: 3px double var(--rule);
 }
 .brand:hover { color: var(--fg); }
-.brand img { display: block; }
+/* the logo is black on solid white: in dark mode invert it, then blend so the
+   (now black) square disappears into the page */
+.brand img { display: block; filter: var(--logo-filter, none); mix-blend-mode: var(--logo-blend, normal); }
+
+/* dark mode toggle, last button in the site nav; hidden until js/theme.js
+   shows it */
+.btn.theme-toggle { font: inherit; cursor: pointer; }
+.theme-toggle[hidden] { display: none; }
 
 .sitename {
   font-weight: bold;
@@ -93,7 +151,7 @@ img { max-width: 100%; height: auto; }
   line-height: 1.3;
 }
 
-.btn:hover { background: #e4e4e4; color: var(--fg); }
+.btn:hover { background: var(--btn-hover); color: var(--fg); }
 
 .btn.active,
 .btn:active {
@@ -117,6 +175,7 @@ img { max-width: 100%; height: auto; }
 }
 
 #sidebar {
+  background: var(--bg); /* backdrop for the logo blend inside this sticky layer */
   position: sticky;
   top: 1rem;
   max-height: calc(100vh - 2rem);
@@ -194,7 +253,7 @@ img { max-width: 100%; height: auto; }
   font-size: 1.17rem;
   margin: 2rem 0 .8rem;
   padding-bottom: .1rem;
-  border-bottom: 1px solid #d2d2d2;
+  border-bottom: 1px solid var(--rule-light);
 }
 
 .article h4 { font-size: 1rem; margin: 1.4rem 0 .6rem; }

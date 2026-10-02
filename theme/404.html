@@ -6,6 +6,7 @@
 <title>robot repository - page not found</title>
 <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | url }}">
 <link rel="stylesheet" href="{{ 'css/wiki.css' | url }}">
+<script src="{{ 'js/theme.js' | url }}"></script>
 </head>
 <body>
 <div id="page">
@@ -19,6 +20,7 @@
       {%- for item in nav %}
       <a class="btn" href="{{ item.url | url }}">{{ item.title }}</a>
       {%- endfor %}
+      <button type="button" id="theme-toggle" class="btn theme-toggle" hidden>Dark mode</button>
     </nav>
   </aside>
   <main id="content">
