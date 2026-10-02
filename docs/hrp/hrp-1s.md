@@ -10,11 +10,11 @@ robot:
 
 ![](https://i.imgur.com/vMxoIOD.jpeg)
 
-In 2000, HRP-1S was unvield with a focus on the application of what was learned on [HRP-1](hrp-1s.md). HRP-1S could operate machinery such as a forklift or an excavator.
+In 2000, HRP-1S was unveild with a focus on the application of what was learned on [HRP-1](hrp-1s.md). HRP-1S could operate machinery such as a forklift or an excavator.
 
 ### Hardware
 
-For the most part, the robot body remained the same between versions. The one area which has been upgraded is the controller. With HRP-1, the controller used was the one that came in a standard Honda P3. It caused a lot of problems being sort of a black-box, unable to be modified because of Honda's proprietary design. The controller was also limitied in functionality, only allowing either the arms to move, or the legs to move, but not at the same time. Posture control was also locked down.
+For the most part, the robot body remained the same between versions. The one area which has been upgraded is the controller. With HRP-1, the controller used was the one that came in a standard Honda P3. It caused a lot of problems being sort of a black-box, unable to be modified because of Honda's proprietary design. The controller was also limited in functionality, only allowing either the arms to move, or the legs to move, but not at the same time. Posture control was also locked down.
 
 ### Software
 
@@ -32,7 +32,7 @@ Walking is controlled by the "master foot", which uses "tape type sensors" attac
 
 A 3D monitor is used to view the robot's POV.
 
-The second mode of operation is by joystick control. With the joystick, an operator can select weather they want to control the head, hands, wrists, torso, or feet. Once selected, the target can be controlled while the body moves with it.
+The second mode of operation is by joystick control. With the joystick, an operator can select whether they want to control the head, hands, wrists, torso, or feet. Once selected, the target can be controlled while the body moves with it.
 
 ### Use Cases
 
