@@ -1,0 +1,292 @@
+/* robot repository
+   Early-2000s wiki, same bones as the original hand-written site:
+   monospace, white page, grey bevelled buttons, blue links. No JavaScript. */
+
+:root {
+  --fg: #000;
+  --bg: #fff;
+  --link: #1e55b8;
+  --visited: #6a3fa0;
+  --muted: #696969;
+  --rule: #9a9a9a;
+  --panel: #f3f3f3;
+  --btn: #d1d1d1;
+  --btn-active: #bcbcbc;
+  --hilite: #fff6bf;
+  --bevel-light: #fff;
+  --bevel-dark: #777;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 14px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: monospace;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+a { color: var(--link); }
+a:visited { color: var(--visited); }
+a:hover { color: #c00; }
+
+img { max-width: 100%; height: auto; }
+
+#page {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+}
+
+/* ---------- masthead ---------- */
+
+#masthead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 .75rem;
+  border-bottom: 3px double var(--rule);
+  margin-bottom: 1.25rem;
+}
+
+#masthead .logo { flex: none; line-height: 0; }
+#masthead .logo img { display: block; }
+
+.masthead-main { flex: 1; min-width: 0; }
+
+.sitename {
+  font-weight: bold;
+  font-size: 1.17rem;
+  letter-spacing: .08em;
+  margin-bottom: .5rem;
+}
+
+/* ---------- buttons (site nav + series tabs) ---------- */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.btn,
+.btn:visited {
+  display: inline-block;
+  padding: .2rem .6rem;
+  background: var(--btn);
+  color: var(--fg);
+  text-decoration: none;
+  border: 2px solid;
+  border-color: var(--bevel-light) var(--bevel-dark) var(--bevel-dark) var(--bevel-light);
+  line-height: 1.3;
+}
+
+.btn:hover { background: #e4e4e4; color: var(--fg); }
+
+.btn.active,
+.btn:active {
+  background: var(--btn-active);
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  font-weight: bold;
+}
+
+.tabs { margin: 0 0 1.25rem; }
+
+/* ---------- page frame ---------- */
+
+#columns { display: block; }
+
+#columns.with-sidebar {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+#sidebar {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+#content { min-width: 0; max-width: 46rem; }
+#columns:not(.with-sidebar) #content { margin: 0 auto; }
+
+.page-title {
+  font-size: 1.35rem;
+  margin: 0 0 .75rem;
+}
+
+/* ---------- table of contents ---------- */
+
+.toc {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  padding: .5rem .75rem .6rem;
+  font-size: .93rem;
+}
+
+.toc-title, .toc summary {
+  font-weight: bold;
+  text-align: center;
+}
+
+.toc summary { cursor: pointer; }
+
+.toc ol {
+  list-style: none;
+  counter-reset: toc;
+  margin: .4rem 0 0;
+  padding: 0;
+}
+
+.toc ol ol { padding-left: 1.1rem; margin-top: 0; }
+.toc li { counter-increment: toc; }
+.toc li > a::before { content: counters(toc, ".") "\00a0"; color: var(--muted); }
+
+.toc-inline { display: none; margin-bottom: 1.25rem; }
+
+/* ---------- article body ---------- */
+
+.article > :first-child { margin-top: 0; }
+
+.article h1, .article h2, .article h3, .article h4 { line-height: 1.25; }
+
+.article h1 { font-size: 1.6rem; margin: 1.2rem 0 .7rem; }
+
+.article h2 {
+  font-size: 1.4rem;
+  margin: 1.4rem 0 .8rem;
+  padding-bottom: .15rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article h3 {
+  font-size: 1.17rem;
+  margin: 2rem 0 .8rem;
+  padding-bottom: .1rem;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.article h4 { font-size: 1rem; margin: 1.4rem 0 .6rem; }
+
+.article p { margin: 0 0 1rem; }
+
+.article ul, .article ol { margin: 0 0 1rem; padding-left: 1.6rem; }
+.article li > :first-child { margin-top: 0; }
+.article li > :last-child { margin-bottom: 0; }
+.article li { margin-bottom: .35rem; }
+.article li > h4:first-child { margin-top: .6rem; }
+
+/* images: one on its own line is centred; several on a line sit side by side */
+.article p.figure { text-align: center; margin: 1rem 0; }
+.article p.figure img { display: block; margin: 0 auto; }
+
+.article p.gallery {
+  display: flex;
+  gap: 0;
+  margin: 1rem 0;
+}
+.article p.gallery > *,
+.article p.gallery > a { flex: 1 1 0; min-width: 0; }
+.article p.gallery img { display: block; width: 100%; }
+
+/* video embeds (YouTube, archive.org, plain files); ratio is set inline */
+.embed {
+  position: relative;
+  width: 100%;
+  margin: 1rem 0;
+  background: #000;
+}
+.embed iframe, .embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* citations */
+sup.cite { font-size: .75em; line-height: 0; }
+sup.cite a { text-decoration: none; }
+sup.cite a:hover { text-decoration: underline; }
+ol.references li:target { background: var(--hilite); }
+
+/* ---------- hub pages: home, robots, articles ---------- */
+
+.tagline { text-align: center; border-bottom: 0 !important; }
+
+.headrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 2rem 0 .8rem;
+}
+.headrow > * { margin: 0 !important; }
+.headrow h3 { border-bottom: 0 !important; padding: 0 !important; }
+.headrow > :not(h3) { font-weight: bold; text-align: right; }
+.headrow em { font-weight: normal; }
+
+.message { color: var(--muted); }
+
+.robot-grid {
+  list-style: none;
+  margin: 0 0 1.25rem !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: .6rem 1rem;
+}
+.robot-grid li { margin: 0 !important; }
+.robot-grid a {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.robot-grid a .profile-name { text-decoration: underline; }
+.profile-image {
+  flex: none;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.series-card { margin: 0 0 2.2rem; }
+.series-card .headrow { margin-top: 0; }
+.series-card img { display: block; margin: 0 auto; }
+
+/* ---------- footer ---------- */
+
+.page-tools {
+  margin-top: 2.5rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--rule);
+  font-size: .86rem;
+  color: var(--muted);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 52rem) {
+  #columns.with-sidebar { display: block; }
+  #sidebar { display: none; }
+  .toc-inline { display: block; }
+}
+
+@media (max-width: 34rem) {
+  #page { padding: 0 .75rem 2rem; }
+  #masthead { flex-direction: column; text-align: center; }
+  .masthead-main { width: 100%; }
+  #masthead .buttons { justify-content: center; }
+  .tabs { justify-content: flex-start; }
+  .headrow { flex-wrap: wrap; }
+}

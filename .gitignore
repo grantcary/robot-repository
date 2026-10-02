@@ -12,3 +12,6 @@ boxes.jpg
 weights/*
 .vscode
 .DS_Store
+# MkDocs
+site/
+.venv/

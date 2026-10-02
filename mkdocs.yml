@@ -1,0 +1,118 @@
+site_name: robot repository
+site_url: https://www.robotrepository.com/
+site_description: Archiving Robotic History
+repo_url: https://github.com/grantcary/robot-repository
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+# Keep the original URLs: /asimo/2000.html, not /asimo/2000/
+use_directory_urls: false
+
+theme:
+  name: null
+  custom_dir: theme
+  static_templates:
+    - 404.html
+
+# The built site is plain HTML + CSS. No JavaScript, no search plugin.
+plugins: []
+
+hooks:
+  - hooks/robotrepo.py
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - tables
+  - toc:
+      toc_depth: 2-4
+
+# Top navigation buttons.
+nav:
+  - Home: index.md
+  - Robots: robots.md
+  - Articles: articles.md
+  - References: references.md
+  - Lost & Found: lost-and-found.md
+  - About: about.md
+
+# Pages that exist but are not in the top navigation (the article pages) are
+# expected, so don't report them.
+validation:
+  nav:
+    omitted_files: ignore
+
+extra:
+  # Old URLs that still need to resolve. old path: new path
+  redirects:
+    series.html: articles.html
+
+  # A "series" is a group of pages that share a tab row across the top and an
+  # entry on the Articles page. Order here = order on the Articles page and in
+  # the Robots directory. See README.md for how to add one.
+  series:
+    - id: asimo
+      title: ASIMO
+      image: https://i.imgur.com/GNDMiA3.jpeg
+      pages:
+        - { label: "2000", page: asimo/2000.md }
+        - { label: "2001", page: asimo/2001.md }
+        - { label: "2002", page: asimo/2002.md }
+        - { label: "2003", page: asimo/2003.md }
+        - { label: "2004", page: asimo/2004.md }
+        - { label: "2005", page: asimo/2005.md }
+        - { label: "2007", page: asimo/2007.md }
+        - { label: "2011", page: asimo/2011.md }
+
+    - id: atlas
+      title: Atlas
+      image: https://i.imgur.com/FDfLvNG.jpeg
+      pages:
+        - { label: PETMAN, page: atlas/petman.md }
+        - { label: Atlas, page: atlas/atlas.md }
+        - { label: DRC, page: atlas/drc.md }
+        - { label: HD, page: atlas/hd.md }
+        - { label: Electric, page: atlas/electric.md }
+
+    - id: hrp
+      title: HRP
+      image: https://i.imgur.com/vLAC8Hw.jpeg
+      pages:
+        - { label: HRP-1, page: hrp/hrp-1.md }
+        - { label: HRP-1S, page: hrp/hrp-1s.md }
+
+    - id: qrio
+      title: QRIO
+      image: https://i.imgur.com/VYUYdl1.jpeg
+      pages:
+        - { label: SDR-3, page: qrio/sdr-3.md }
+        - { label: SDR-3X, page: qrio/sdr-3x.md }
+        - { label: SDR-4X, page: qrio/sdr-4x.md }
+        - { label: SDR-4X II, page: qrio/sdr-4xii.md }
+        - { label: EVAL-03, page: qrio/eval-03.md }
+
+    - id: p-series
+      title: Honda P Series
+      image: https://i.imgur.com/lkMXhxg.jpeg
+      start: p-series/p4.md # where "Read more" on the Articles page goes
+      pages:
+        # P1-P3 are placeholders that point home until their pages exist.
+        - { label: P1, page: index.md }
+        - { label: P2, page: index.md }
+        - { label: P3, page: index.md }
+        - { label: P4, page: p-series/p4.md }
+
+    # The unfinished PetProto page has its own tab row (it is not linked from
+    # the Atlas tabs). Hidden series are not listed on the Articles page.
+    - id: atlas-petproto
+      title: Atlas
+      hidden: true
+      pages:
+        - { label: PetProto, page: atlas/petproto.md }
+        - { label: PETMAN, page: atlas/petman.md }
+        - { label: DRC, page: atlas/drc.md }
+        - { label: HD, page: atlas/hd.md }
+        - { label: Electric, page: atlas/electric.md }
