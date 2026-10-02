@@ -18,21 +18,24 @@
   if (theme === "dark" || theme === "light") root.setAttribute("data-theme", theme);
 
   document.addEventListener("DOMContentLoaded", function () {
-    var button = document.getElementById("theme-toggle");
-    if (!button) return;
+    // one toggle in the sidebar nav, one in the small-screen menu
+    var buttons = document.querySelectorAll(".theme-toggle");
 
     function label() {
-      button.textContent = current() === "dark" ? "Light mode" : "Dark mode";
+      var text = current() === "dark" ? "Light mode" : "Dark mode";
+      buttons.forEach(function (b) { b.textContent = text; });
     }
 
-    button.addEventListener("click", function () {
-      var next = current() === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
-      label();
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var next = current() === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        label();
+      });
+      button.hidden = false;
     });
     dark.addEventListener("change", label);
     label();
-    button.hidden = false;
   });
 })();

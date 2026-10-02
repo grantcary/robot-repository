@@ -16,12 +16,21 @@
       <img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob">
       <span class="sitename">ROBOT REPOSITORY</span>
     </a>
-    <nav id="sitenav" class="buttons" aria-label="Site">
+    <nav class="site-nav buttons" aria-label="Site">
       {%- for item in nav %}
       <a class="btn" href="{{ item.url | url }}">{{ item.title }}</a>
       {%- endfor %}
-      <button type="button" id="theme-toggle" class="btn theme-toggle" hidden>Dark mode</button>
+      <button type="button" class="btn theme-toggle" hidden>Dark mode</button>
     </nav>
+    <details class="nav-menu">
+      <summary>Menu</summary>
+      <nav class="site-nav buttons" aria-label="Site">
+        {%- for item in nav %}
+        <a class="btn" href="{{ item.url | url }}">{{ item.title }}</a>
+        {%- endfor %}
+        <button type="button" class="btn theme-toggle" hidden>Dark mode</button>
+      </nav>
+    </details>
   </aside>
   <main id="content">
     <h1 class="page-title">404</h1>

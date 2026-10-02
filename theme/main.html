@@ -6,6 +6,16 @@
 {%- endfor %}
 </ol>
 {%- endmacro -%}
+{#- Site nav. Rendered twice: a button stack in the sidebar on desktop, and
+    inside the "Menu" dropdown on small screens. -#}
+{%- macro site_nav() -%}
+<nav class="site-nav buttons" aria-label="Site">
+  {%- for item in nav %}
+  <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
+  {%- endfor %}
+  <button type="button" class="btn theme-toggle" hidden>Dark mode</button>
+</nav>
+{%- endmacro -%}
 {%- set has_toc = toc_count >= 3 and page.meta.toc != false -%}
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +42,11 @@
       <img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob">
       <span class="sitename">ROBOT REPOSITORY</span>
     </a>
-    <nav id="sitenav" class="buttons" aria-label="Site">
-      {%- for item in nav %}
-      <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
-      {%- endfor %}
-      <button type="button" id="theme-toggle" class="btn theme-toggle" hidden>Dark mode</button>
-    </nav>
+    {{ site_nav() }}
+    <details class="nav-menu">
+      <summary>Menu</summary>
+      {{ site_nav() }}
+    </details>
     {%- if page_header %}
     <div class="series">
       <div class="series-title">{{ page_header }}</div>

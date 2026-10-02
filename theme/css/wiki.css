@@ -125,11 +125,14 @@ img { max-width: 100%; height: auto; }
   text-align: center;
 }
 
-#sitenav {
+.site-nav {
   flex-direction: column;
   margin-bottom: 1rem;
 }
-#sitenav .btn { text-align: center; }
+.site-nav .btn { text-align: center; }
+
+/* small-screen dropdown holding the same nav; hidden on desktop */
+.nav-menu { display: none; }
 
 /* ---------- buttons (site nav + series tabs) ---------- */
 
@@ -207,19 +210,19 @@ img { max-width: 100%; height: auto; }
 
 /* ---------- table of contents ---------- */
 
-.toc {
+.toc, .nav-menu {
   background: var(--panel);
   border: 1px solid var(--rule);
   padding: .5rem .75rem .6rem;
   font-size: .93rem;
 }
 
-.toc-title, .toc summary {
+.toc-title, .toc summary, .nav-menu summary {
   font-weight: bold;
   text-align: center;
 }
 
-.toc summary { cursor: pointer; }
+.toc summary, .nav-menu summary { cursor: pointer; }
 
 .toc ol {
   list-style: none;
@@ -370,7 +373,9 @@ ol.references li:target { background: var(--hilite); }
     border-bottom: 3px double var(--rule);
   }
   .brand { flex-direction: row; justify-content: center; border-bottom: 0; margin-bottom: .5rem; padding-bottom: 0; }
-  #sitenav { flex-direction: row; justify-content: center; margin-bottom: 0; }
+  #sidebar > .site-nav { display: none; }
+  .nav-menu { display: block; }
+  .nav-menu .site-nav { margin: .5rem 0 0; }
   .series { margin: .75rem 0 0; }
   .toc-side { display: none; }
   .toc-inline { display: block; }
