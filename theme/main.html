@@ -25,39 +25,38 @@
 <body{% if page.is_homepage %} class="home"{% endif %}>
 <div id="page">
 
-<header id="masthead">
-  <a class="logo" href="{{ 'index.html' | url }}"><img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob"></a>
-  <div class="masthead-main">
-    <div class="sitename">ROBOT REPOSITORY</div>
-    <nav id="topnav" class="buttons" aria-label="Site">
-      {%- for item in nav %}{% if not item.is_homepage %}
-      <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
-      {%- endif %}{% endfor %}
-    </nav>
-  </div>
-</header>
-
-<div id="columns"{% if has_toc %} class="with-sidebar"{% endif %}>
-  {%- if has_toc %}
+<div id="columns">
   <aside id="sidebar">
-    <nav class="toc" aria-label="Contents">
+    <a class="brand" href="{{ 'index.html' | url }}">
+      <img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob">
+      <span class="sitename">ROBOT REPOSITORY</span>
+    </a>
+    <nav id="sitenav" class="buttons" aria-label="Site">
+      {%- for item in nav %}
+      <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
+      {%- endfor %}
+    </nav>
+    {%- if page_header %}
+    <div class="series">
+      <div class="series-title">{{ page_header }}</div>
+      {%- if series_tabs %}
+      <nav class="buttons tabs" aria-label="{{ page_header }}">
+        {%- for tab in series_tabs %}
+        <a class="btn{% if tab.active %} active{% endif %}" href="{{ tab.url }}">{{ tab.label }}</a>
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    {%- if has_toc %}
+    <nav class="toc toc-side" aria-label="Contents">
       <div class="toc-title">Contents</div>
       {{ toc_list(page.toc.items) }}
     </nav>
+    {%- endif %}
   </aside>
-  {%- endif %}
 
   <main id="content">
-    {%- if page_header %}
-    <h1 class="page-title">{{ page_header }}</h1>
-    {%- endif %}
-    {%- if series_tabs %}
-    <nav class="buttons tabs" aria-label="{{ page_header }}">
-      {%- for tab in series_tabs %}
-      <a class="btn{% if tab.active %} active{% endif %}" href="{{ tab.url }}">{{ tab.label }}</a>
-      {%- endfor %}
-    </nav>
-    {%- endif %}
     {%- if has_toc %}
     <details class="toc toc-inline">
       <summary>Contents</summary>

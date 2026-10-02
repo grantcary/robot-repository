@@ -19,7 +19,8 @@
 
 * { box-sizing: border-box; }
 
-html { font-size: 14px; }
+/* reserve the scrollbar so short pages line up with long ones */
+html { font-size: 14px; scrollbar-gutter: stable; }
 
 body {
   margin: 0;
@@ -42,28 +43,35 @@ img { max-width: 100%; height: auto; }
   padding: 0 1rem 2rem;
 }
 
-/* ---------- masthead ---------- */
+/* ---------- sidebar: logo, site nav, contents ---------- */
 
-#masthead {
+.brand,
+.brand:visited {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 0 .75rem;
+  gap: .4rem;
+  color: var(--fg);
+  text-decoration: none;
+  padding-bottom: .75rem;
+  margin-bottom: .75rem;
   border-bottom: 3px double var(--rule);
-  margin-bottom: 1.25rem;
 }
-
-#masthead .logo { flex: none; line-height: 0; }
-#masthead .logo img { display: block; }
-
-.masthead-main { flex: 1; min-width: 0; }
+.brand:hover { color: var(--fg); }
+.brand img { display: block; }
 
 .sitename {
   font-weight: bold;
   font-size: 1.17rem;
   letter-spacing: .08em;
-  margin-bottom: .5rem;
+  text-align: center;
 }
+
+#sitenav {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#sitenav .btn { text-align: center; }
 
 /* ---------- buttons (site nav + series tabs) ---------- */
 
@@ -94,17 +102,18 @@ img { max-width: 100%; height: auto; }
   font-weight: bold;
 }
 
-.tabs { margin: 0 0 1.25rem; }
 
-/* ---------- page frame ---------- */
+/* ---------- page frame ----------
+   Every page gets the same sidebar and content column, so the layout does not
+   shift between pages with and without a table of contents. */
 
-#columns { display: block; }
-
-#columns.with-sidebar {
+#columns {
   display: grid;
-  grid-template-columns: 15rem minmax(0, 1fr);
+  grid-template-columns: 15rem minmax(0, 46rem);
+  justify-content: center;
   gap: 1.5rem;
   align-items: start;
+  padding-top: 1rem;
 }
 
 #sidebar {
@@ -114,13 +123,28 @@ img { max-width: 100%; height: auto; }
   overflow-y: auto;
 }
 
-#content { min-width: 0; max-width: 46rem; }
-#columns:not(.with-sidebar) #content { margin: 0 auto; }
+#content { min-width: 0; }
+
+/* series name + version tabs, between the site nav and the contents */
+.series {
+  margin-bottom: 1rem;
+  padding-top: .75rem;
+  border-top: 3px double var(--rule);
+}
+
+.series-title {
+  font-weight: bold;
+  font-size: 1.17rem;
+  text-align: center;
+  margin: 0 0 .5rem;
+}
 
 .page-title {
   font-size: 1.35rem;
   margin: 0 0 .75rem;
 }
+
+.series .tabs { justify-content: center; }
 
 /* ---------- table of contents ---------- */
 
@@ -277,16 +301,23 @@ ol.references li:target { background: var(--hilite); }
 /* ---------- small screens ---------- */
 
 @media (max-width: 52rem) {
-  #columns.with-sidebar { display: block; }
-  #sidebar { display: none; }
+  #columns { display: block; }
+  #sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 1.25rem;
+    padding-bottom: .75rem;
+    border-bottom: 3px double var(--rule);
+  }
+  .brand { flex-direction: row; justify-content: center; border-bottom: 0; margin-bottom: .5rem; padding-bottom: 0; }
+  #sitenav { flex-direction: row; justify-content: center; margin-bottom: 0; }
+  .series { margin: .75rem 0 0; }
+  .toc-side { display: none; }
   .toc-inline { display: block; }
 }
 
 @media (max-width: 34rem) {
   #page { padding: 0 .75rem 2rem; }
-  #masthead { flex-direction: column; text-align: center; }
-  .masthead-main { width: 100%; }
-  #masthead .buttons { justify-content: center; }
-  .tabs { justify-content: flex-start; }
   .headrow { flex-wrap: wrap; }
 }

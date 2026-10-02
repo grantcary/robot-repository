@@ -9,15 +9,24 @@
 </head>
 <body>
 <div id="page">
-<header id="masthead">
-  <a class="logo" href="{{ 'index.html' | url }}"><img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob"></a>
-  <div class="masthead-main"><div class="sitename">ROBOT REPOSITORY</div></div>
-</header>
-<main id="content">
-  <h1 class="page-title">404</h1>
-  <p>Page not found.</p>
-  <p><a href="{{ 'index.html' | url }}">Back to the main page</a></p>
-</main>
+<div id="columns">
+  <aside id="sidebar">
+    <a class="brand" href="{{ 'index.html' | url }}">
+      <img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob">
+      <span class="sitename">ROBOT REPOSITORY</span>
+    </a>
+    <nav id="sitenav" class="buttons" aria-label="Site">
+      {%- for item in nav %}
+      <a class="btn" href="{{ item.url | url }}">{{ item.title }}</a>
+      {%- endfor %}
+    </nav>
+  </aside>
+  <main id="content">
+    <h1 class="page-title">404</h1>
+    <p>Page not found.</p>
+    <p><a href="{{ 'index.html' | url }}">Back to the main page</a></p>
+  </main>
+</div>
 </div>
 </body>
 </html>
