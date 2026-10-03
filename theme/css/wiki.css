@@ -1,0 +1,387 @@
+/* robot repository
+   Early-2000s wiki, same bones as the original hand-written site:
+   monospace, white page, grey bevelled buttons, blue links. The only script
+   is js/theme.js, for the dark mode toggle. */
+
+:root {
+  --fg: #000;
+  --bg: #fff;
+  --link: #1e55b8;
+  --visited: #6a3fa0;
+  --muted: #696969;
+  --rule: #9a9a9a;
+  --panel: #f3f3f3;
+  --btn: #d1d1d1;
+  --btn-active: #bcbcbc;
+  --hilite: #fff6bf;
+  --bevel-light: #fff;
+  --bevel-dark: #777;
+  --hover: #c00;
+  --btn-hover: #e4e4e4;
+  --rule-light: #d2d2d2;
+  color-scheme: light;
+}
+
+/* dark palette: follows the OS unless the toggle picked light, or forced by
+   the toggle picking dark. Keep the two blocks identical. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fg: #e2e2e2;
+    --bg: #161616;
+    --link: #7fa8f0;
+    --visited: #b598e0;
+    --muted: #a0a0a0;
+    --rule: #5c5c5c;
+    --panel: #222;
+    --btn: #3a3a3a;
+    --btn-active: #2a2a2a;
+    --hilite: #4a4210;
+    --bevel-light: #6a6a6a;
+    --bevel-dark: #111;
+    --hover: #ff7a7a;
+    --btn-hover: #474747;
+    --rule-light: #3a3a3a;
+    --logo-filter: invert(1);
+    --logo-blend: lighten;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fg: #e2e2e2;
+  --bg: #161616;
+  --link: #7fa8f0;
+  --visited: #b598e0;
+  --muted: #a0a0a0;
+  --rule: #5c5c5c;
+  --panel: #222;
+  --btn: #3a3a3a;
+  --btn-active: #2a2a2a;
+  --hilite: #4a4210;
+  --bevel-light: #6a6a6a;
+  --bevel-dark: #111;
+  --hover: #ff7a7a;
+  --btn-hover: #474747;
+  --rule-light: #3a3a3a;
+  --logo-filter: invert(1);
+  --logo-blend: lighten;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+/* reserve the scrollbar so short pages line up with long ones */
+html { font-size: 14px; scrollbar-gutter: stable; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: monospace;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+a { color: var(--link); }
+a:visited { color: var(--visited); }
+a:hover { color: var(--hover); }
+
+img { max-width: 100%; height: auto; }
+
+#page {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+/* ---------- sidebar: logo, site nav, contents ---------- */
+
+.brand,
+.brand:visited {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  color: var(--fg);
+  text-decoration: none;
+  padding-bottom: .75rem;
+  margin-bottom: .75rem;
+  border-bottom: 3px double var(--rule);
+}
+.brand:hover { color: var(--fg); }
+/* the logo is black on solid white: in dark mode invert it, then blend so the
+   (now black) square disappears into the page */
+.brand img { display: block; filter: var(--logo-filter, none); mix-blend-mode: var(--logo-blend, normal); }
+
+/* dark mode toggle, last button in the site nav; hidden until js/theme.js
+   shows it */
+.btn.theme-toggle { font: inherit; cursor: pointer; }
+.theme-toggle[hidden] { display: none; }
+
+.sitename {
+  font-weight: bold;
+  font-size: 1.17rem;
+  letter-spacing: .08em;
+  text-align: center;
+}
+
+.site-nav {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.site-nav .btn { text-align: center; }
+
+/* small-screen dropdown holding the same nav; hidden on desktop */
+.nav-menu { display: none; }
+
+/* ---------- buttons (site nav + series tabs) ---------- */
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.btn,
+.btn:visited {
+  display: inline-block;
+  padding: .2rem .6rem;
+  background: var(--btn);
+  color: var(--fg);
+  text-decoration: none;
+  border: 2px solid;
+  border-color: var(--bevel-light) var(--bevel-dark) var(--bevel-dark) var(--bevel-light);
+  line-height: 1.3;
+}
+
+.btn:hover { background: var(--btn-hover); color: var(--fg); }
+
+.btn.active,
+.btn:active {
+  background: var(--btn-active);
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  font-weight: bold;
+}
+
+
+/* ---------- page frame ----------
+   Every page gets the same sidebar and content column, so the layout does not
+   shift between pages with and without a table of contents. */
+
+#columns {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 46rem);
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: start;
+  padding-top: 1rem;
+}
+
+#sidebar {
+  background: var(--bg); /* backdrop for the logo blend inside this sticky layer */
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+#content { min-width: 0; }
+
+/* series name + version tabs, between the site nav and the contents */
+.series {
+  margin-bottom: 1rem;
+  padding-top: .75rem;
+  border-top: 3px double var(--rule);
+}
+
+.series-title {
+  font-weight: bold;
+  font-size: 1.17rem;
+  text-align: center;
+  margin: 0 0 .5rem;
+}
+
+.page-title {
+  font-size: 1.35rem;
+  margin: 0 0 .75rem;
+}
+
+.series .tabs { justify-content: center; }
+
+/* ---------- table of contents ---------- */
+
+.toc, .nav-menu {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  padding: .5rem .75rem .6rem;
+  font-size: .93rem;
+}
+
+.toc-title, .toc summary, .nav-menu summary {
+  font-weight: bold;
+  text-align: center;
+}
+
+.toc summary, .nav-menu summary { cursor: pointer; }
+
+.toc ol {
+  list-style: none;
+  counter-reset: toc;
+  margin: .4rem 0 0;
+  padding: 0;
+}
+
+.toc ol ol { padding-left: 1.1rem; margin-top: 0; }
+.toc li { counter-increment: toc; }
+.toc li > a::before { content: counters(toc, ".") "\00a0"; color: var(--muted); }
+
+.toc-inline { display: none; margin-bottom: 1.25rem; }
+
+/* ---------- article body ---------- */
+
+.article > :first-child { margin-top: 0; }
+
+.article h1, .article h2, .article h3, .article h4 { line-height: 1.25; }
+
+.article h1 { font-size: 1.6rem; margin: 1.2rem 0 .7rem; }
+
+.article h2 {
+  font-size: 1.4rem;
+  margin: 1.4rem 0 .8rem;
+  padding-bottom: .15rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article h3 {
+  font-size: 1.17rem;
+  margin: 2rem 0 .8rem;
+  padding-bottom: .1rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.article h4 { font-size: 1rem; margin: 1.4rem 0 .6rem; }
+
+.article p { margin: 0 0 1rem; }
+
+.article ul, .article ol { margin: 0 0 1rem; padding-left: 1.6rem; }
+.article li > :first-child { margin-top: 0; }
+.article li > :last-child { margin-bottom: 0; }
+.article li { margin-bottom: .35rem; }
+.article li > h4:first-child { margin-top: .6rem; }
+
+/* images: one on its own line is centred; several on a line sit side by side */
+.article p.figure { text-align: center; margin: 1rem 0; }
+.article p.figure img { display: block; margin: 0 auto; }
+
+.article p.gallery {
+  display: flex;
+  gap: 0;
+  margin: 1rem 0;
+}
+.article p.gallery > *,
+.article p.gallery > a { flex: 1 1 0; min-width: 0; }
+.article p.gallery img { display: block; width: 100%; }
+
+/* video embeds (YouTube, archive.org, plain files); ratio is set inline */
+.embed {
+  position: relative;
+  width: 100%;
+  margin: 1rem 0;
+  background: #000;
+}
+.embed iframe, .embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* citations */
+sup.cite { font-size: .75em; line-height: 0; }
+sup.cite a { text-decoration: none; }
+sup.cite a:hover { text-decoration: underline; }
+ol.references li:target { background: var(--hilite); }
+
+/* ---------- hub pages: home, robots, articles ---------- */
+
+.tagline { text-align: center; border-bottom: 0 !important; }
+
+.headrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 2rem 0 .8rem;
+}
+.headrow > * { margin: 0 !important; }
+.headrow h3 { border-bottom: 0 !important; padding: 0 !important; }
+.headrow > :not(h3) { font-weight: bold; text-align: right; }
+.headrow em { font-weight: normal; }
+
+.message { color: var(--muted); }
+
+.robot-grid {
+  list-style: none;
+  margin: 0 0 1.25rem !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: .6rem 1rem;
+}
+.robot-grid li { margin: 0 !important; }
+.robot-grid a {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.robot-grid a .profile-name { text-decoration: underline; }
+.profile-image {
+  flex: none;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
+.series-card { margin: 0 0 2.2rem; }
+.series-card .headrow { margin-top: 0; }
+.series-card img { display: block; margin: 0 auto; }
+
+/* ---------- footer ---------- */
+
+.page-tools {
+  margin-top: 2.5rem;
+  padding-top: .6rem;
+  border-top: 1px solid var(--rule);
+  font-size: .86rem;
+  color: var(--muted);
+}
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 52rem) {
+  #columns { display: block; }
+  #sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 1.25rem;
+    padding-bottom: .75rem;
+    border-bottom: 3px double var(--rule);
+  }
+  .brand { flex-direction: row; justify-content: center; border-bottom: 0; margin-bottom: .5rem; padding-bottom: 0; }
+  #sidebar > .site-nav { display: none; }
+  .nav-menu { display: block; }
+  .nav-menu .site-nav { margin: .5rem 0 0; }
+  .series { margin: .75rem 0 0; }
+  .toc-side { display: none; }
+  .toc-inline { display: block; }
+}
+
+@media (max-width: 34rem) {
+  #page { padding: 0 1rem 2rem; }
+  .headrow { flex-wrap: wrap; }
+}

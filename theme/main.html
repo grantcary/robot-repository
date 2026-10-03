@@ -1,0 +1,93 @@
+{#- Single template for every page. HTML + CSS; the only script is the dark mode toggle. -#}
+{%- macro toc_list(items) -%}
+<ol>
+{%- for item in items %}
+<li><a href="{{ item.url }}">{{ item.title }}</a>{% if item.children %}{{ toc_list(item.children) }}{% endif %}</li>
+{%- endfor %}
+</ol>
+{%- endmacro -%}
+{#- Site nav. Rendered twice: a button stack in the sidebar on desktop, and
+    inside the "Menu" dropdown on small screens. -#}
+{%- macro site_nav() -%}
+<nav class="site-nav buttons" aria-label="Site">
+  {%- for item in nav %}
+  <a class="btn{% if item.active %} active{% endif %}" href="{{ item.url | url }}">{{ item.title }}</a>
+  {%- endfor %}
+  <button type="button" class="btn theme-toggle" hidden>Dark mode</button>
+</nav>
+{%- endmacro -%}
+{%- set has_toc = toc_count >= 3 and page.meta.toc != false -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robot repository{% if page.meta.title %} - {{ page.meta.title }}{% endif %}</title>
+{%- if config.site_description %}
+<meta name="description" content="{{ config.site_description }}">
+{%- endif %}
+{%- if page.canonical_url %}
+<link rel="canonical" href="{{ page.canonical_url }}">
+{%- endif %}
+<link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | url }}">
+<link rel="stylesheet" href="{{ 'css/wiki.css' | url }}">
+<script src="{{ 'js/theme.js' | url }}"></script>
+</head>
+<body{% if page.is_homepage %} class="home"{% endif %}>
+<div id="page">
+
+<div id="columns">
+  <aside id="sidebar">
+    <a class="brand" href="{{ 'index.html' | url }}">
+      <img src="{{ 'robo.png' | url }}" width="64" height="64" alt="rob">
+      <span class="sitename">ROBOT REPOSITORY</span>
+    </a>
+    {{ site_nav() }}
+    <details class="nav-menu">
+      <summary>Menu</summary>
+      {{ site_nav() }}
+    </details>
+    {%- if page_header %}
+    <div class="series">
+      <div class="series-title">{{ page_header }}</div>
+      {%- if series_tabs %}
+      <nav class="buttons tabs" aria-label="{{ page_header }}">
+        {%- for tab in series_tabs %}
+        <a class="btn{% if tab.active %} active{% endif %}" href="{{ tab.url }}">{{ tab.label }}</a>
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    {%- if has_toc %}
+    <nav class="toc toc-side" aria-label="Contents">
+      <div class="toc-title">Contents</div>
+      {{ toc_list(page.toc.items) }}
+    </nav>
+    {%- endif %}
+  </aside>
+
+  <main id="content">
+    {%- if has_toc %}
+    <details class="toc toc-inline">
+      <summary>Contents</summary>
+      {{ toc_list(page.toc.items) }}
+    </details>
+    {%- endif %}
+
+    <article class="article">
+{{ page.content }}
+    </article>
+
+    <footer class="page-tools">
+      {%- if page.edit_url %}
+      <a href="{{ page.edit_url }}">Edit this page</a> &middot;
+      <a href="{{ page_history_url }}">History</a>
+      {%- endif %}
+    </footer>
+  </main>
+</div>
+
+</div>
+</body>
+</html>
