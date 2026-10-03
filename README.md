@@ -3,7 +3,7 @@
 Archiving robotic history, mostly between the 90s and 2000s: [robotrepository.com](https://www.robotrepository.com)
 
 The site is a folder of markdown files built into plain HTML + CSS with
-[MkDocs](https://www.mkdocs.org). The built site has **no JavaScript**.
+[MkDocs](https://www.mkdocs.org). The built site has very little JavaScript.
 
 ## Writing
 
