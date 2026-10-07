@@ -10,6 +10,8 @@ title: "references"
 
 [Plastic Pals (Wayback Machine only)](https://web.archive.org/web/20170613052833/http://www.plasticpals.com/)
 
+[Robodomo](https://robodomo.net/sony-robots)
+
 ### ASIMO
 
 [IBM Voice](https://www.itmedia.co.jp/news/0208/02/nj00_ibm_trl.html)

@@ -14,7 +14,7 @@ March 19th, 2002
 
 ### Hardware
 
-SDR-4X is a bit taller than its predecessor SDR-3X, with new measurements: width = 26 cm, height = 58 cm, depth = 19 cm, weight = 6.5 kg. It also has a greater degree of freedom: 38 DOF
+SDR-4X is a bit taller than its predecessor [SDR-3X](sdr-3x.md), with new measurements: width = 26 cm, height = 58 cm, depth = 19 cm, weight = 6.5 kg. It also has a greater degree of freedom: 38 DOF
 
 ![](https://pc.watch.impress.co.jp/docs/2002/0319/sony303.jpg)
 

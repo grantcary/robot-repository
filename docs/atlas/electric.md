@@ -6,15 +6,13 @@ robot:
   thumbnail: https://i.imgur.com/NOgIc8y.jpeg
 ---
 
-## Electric (e-Atlas)
+## e-Atlas Prototype
 
 ![](11.jpg)
 
 On April 17th, 2024, Boston Dynamics released a video announcing an all new, fully electric Atlas, just a day after announcing the retirement of its hydraulicly actuated HD Atlas.
 
 On January 5th during a Hyundai keynote presentation at CES 2026, Boston Dynamics unveiled a product version of Atlas. This is apparently the simplest robot that they have ever made and is designed for manufacturability first. As of early 2026, Hyundai plans on building a purpose built factory for building Atlas robots by 2028, with a capacity of 30,000 robots a year.
-
-### Prototype Version
 
 https://www.youtube.com/watch?v=29ECwExc-_M
 
@@ -24,7 +22,11 @@ A new torso design allows Atlas to lean forward and side to side, adding flexibi
 
 https://www.youtube.com/watch?v=F_7IPm7f1vI
 
-### Product Version
+### Hand (GR2)
+
+7 DoF
+
+## e-Atlas Product
 
 ![](https://i.imgur.com/Zzo9hGL.jpeg)
 
@@ -43,3 +45,10 @@ Carrying handles are integrated into the upper and lower back to move the robot 
 Atlas' hands have four fingers, each with tactile sensors, along with the palm. A barcode scanner in the top of the hand allows it to keep track of the items it is handling.
 
 https://www.youtube.com/watch?v=hYRG6kHbYKI&t=1172
+
+
+### Hand (GR3)
+
+![](https://i.imgur.com/hXaLzoQ.jpeg)
+
+13 DoF

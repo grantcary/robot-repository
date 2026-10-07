@@ -20,7 +20,7 @@ The project was broken up into two phases. The first phase had a focus on buildi
 
 ![](https://i.imgur.com/KKcvPYD.jpeg) ![](https://i.imgur.com/8E613s0.jpeg)
 
-Honda R&D supplied the HRP with four of their P3 humanoid robots. Besides having the color changed to yellow, they were also modified with a custom communication interface where it could use either ethernet or fiber optics. HRP-1 could be used either wirelessly or tethered.
+Honda R&D supplied the HRP with four of their [P3](../p-series/p3.md) humanoid robots. Besides having the color changed to yellow, they were also modified with a custom communication interface where it could use either ethernet or fiber optics. HRP-1 could be used either wirelessly or tethered.
 
 ### Virtual Platform
 

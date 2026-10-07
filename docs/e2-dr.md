@@ -17,13 +17,13 @@ This robot was born from aftermath of the Fukushima disaster. With not a single 
 
 ### Prototypes
 
-https://www.youtube.com/watch?v=Sta-1gPrRSQ
+https://www.youtube.com/watch?v=rsZJRrv3nzc&t
 
 The first experimentation with this robot line was the E series-like robot with ASIMO legs and a laser range finder, along with better terrain navigation software, shown off in the same NHK documentary.
 
 https://www.youtube.com/watch?v=794YNdvOgKI
 
-Prototype mockup first seen in NHK documentary robot revolution airing in 2014, the design more akin to the Honda P series with a blend of ASIMO.
+Prototype mockup first seen in NHK documentary robot revolution airing in 2014, the design more akin to the Honda [P series](p-series/p4.md) with a blend of ASIMO.
 
 ![](https://i.imgur.com/6r2i00p.jpeg)
 

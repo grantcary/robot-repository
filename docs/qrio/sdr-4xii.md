@@ -14,7 +14,7 @@ In Sony's continuing quest to commercialize QRIO, a new prototype was unveiled o
 
 In an interview with EE Times at ROBODEX2003, Tadatoshi Doi, president of Sony Corp.'s Intelligence Dynamics Laboratories, claimed that commercial release was projected for the following year and it would cost around $42,000. QRIO was never released commercially.
 
-Though SDR-4X and SDR-4X II have mostly the same exterior, here's how to differentiate them. On SDR-4X, the hands and knee joint are black. On SDR-4 II, the hands are grey and the knee joints are silver.
+Though [SDR-4X](sdr-4x.md) and SDR-4X II have mostly the same exterior, here's how to differentiate them. On SDR-4X, the hands and knee joint are black. On SDR-4 II, the hands are grey and the knee joints are silver.
 
 ### QRIO Rebrand
 
