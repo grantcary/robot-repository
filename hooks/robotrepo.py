@@ -5,7 +5,10 @@ Everything here exists so that article markdown can stay plain:
   * a bare video URL on its own line becomes an embed (YouTube, archive.org,
     or a direct video file)
   * ``[^3]`` becomes a numbered citation that links to reference 3
-  * images on their own line are centred; several on one line sit side by side
+  * a list can start right under a line of text, without a blank line first
+  * images on their own line are centred; several on one line sit side by side,
+    scaled to one shared height (each image's shape is measured at build time
+    and cached in ``hooks/image-sizes.json``)
   * ``{{robots}}`` / ``{{series}}`` build the robot directory and the Articles
     page from the front matter of the pages themselves
   * tab rows for a series come from ``extra.series`` in mkdocs.yml
@@ -13,16 +16,20 @@ Everything here exists so that article markdown can stay plain:
 Markdown features are in ``RobotRepoExtension``; the MkDocs hooks (bottom of
 file) wire it in and supply the data the theme needs.
 """
+import json
 import logging
 import re
+import urllib.request
 import xml.etree.ElementTree as etree
 from html import escape
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from PIL import ImageFile
 from markdown.blockprocessors import BlockProcessor
 from markdown.extensions import Extension
 from markdown.inlinepatterns import InlineProcessor
+from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 from mkdocs.exceptions import PluginError
 from mkdocs.utils import get_relative_url
@@ -167,8 +174,104 @@ class CiteInline(InlineProcessor):
 
 
 # --------------------------------------------------------------------------
+# Lists right under a line of text
+# --------------------------------------------------------------------------
+
+# Python-Markdown only starts a list after a blank line, so "The plug-ins are:"
+# followed directly by "+ HUMANOID" would read as one paragraph. Add the blank
+# line for it, like GitHub does. Only top-level bullets ("- ", "* ", "+ ") and
+# lists numbered from "1." count, so a wrapped line that happens to begin with
+# a number isn't turned into a list.
+LIST_START = re.compile(r"^(?:[-*+]|1[.)])[ \t]+\S")
+LIST_ITEM = re.compile(r"^[ \t]*(?:[-*+]|\d+[.)])[ \t]+")
+FENCE = re.compile(r"^[ \t]*(```|~~~)")
+
+
+class ListAfterText(Preprocessor):
+    def run(self, lines):
+        out, fenced, prev = [], False, ""
+        for line in lines:
+            if FENCE.match(line):
+                fenced = not fenced
+            elif (
+                not fenced
+                and LIST_START.match(line)
+                and prev.strip()
+                and not prev[0].isspace()
+                and not LIST_ITEM.match(prev)
+                and not prev.lstrip().startswith(("|", ">", "<"))
+            ):
+                out.append("")
+            out.append(line)
+            prev = line
+        return out
+
+
+# --------------------------------------------------------------------------
 # Tidy-ups on the parsed tree
 # --------------------------------------------------------------------------
+
+
+# Image sizes, so side-by-side images can share a height without JavaScript.
+# Remote images are measured once by downloading just enough of the file to
+# read its header, then remembered in image-sizes.json (commit that file, so
+# builds don't re-download).
+
+SIZES_FILE = Path(__file__).with_name("image-sizes.json")
+_SIZES = None
+_SIZES_CHANGED = False
+
+
+def _load_sizes():
+    global _SIZES
+    if _SIZES is None:
+        try:
+            _SIZES = json.loads(SIZES_FILE.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _SIZES = {}
+    return _SIZES
+
+
+def _fetch_size(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "robotrepository-build"})
+    parser = ImageFile.Parser()
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        for _ in range(256):  # at most 1 MB of header
+            chunk = resp.read(4096)
+            if not chunk:
+                break
+            parser.feed(chunk)
+            if parser.image:
+                return list(parser.image.size)
+    return None
+
+
+def image_size(src):
+    """(width, height) of a remote image, or None if it can't be measured."""
+    global _SIZES_CHANGED
+    if not src.startswith(("http://", "https://")):
+        return None
+    sizes = _load_sizes()
+    if src not in sizes:
+        try:
+            size = _fetch_size(src)
+        except Exception as e:  # network trouble shouldn't break the build
+            log.info("Could not measure image %s: %s", src, e)
+            return None
+        if not size:
+            return None
+        sizes[src] = size
+        _SIZES_CHANGED = True
+    return tuple(sizes[src])
+
+
+def _save_sizes():
+    global _SIZES_CHANGED
+    if _SIZES_CHANGED:
+        SIZES_FILE.write_text(
+            json.dumps(dict(sorted(_SIZES.items())), indent=1) + "\n", encoding="utf-8"
+        )
+        _SIZES_CHANGED = False
 
 
 def _is_image(el):
@@ -190,6 +293,8 @@ class TidyTree(Treeprocessor):
                 and all(not (k.tail or "").strip() for k in kids)
             ):
                 p.set("class", "gallery" if len(kids) > 1 else "figure")
+                if len(kids) > 1:
+                    self._share_height(kids)
 
         for img in root.iter("img"):
             img.set("loading", "lazy")
@@ -205,10 +310,27 @@ class TidyTree(Treeprocessor):
                     li.set("id", f"cite_note-{i:02d}")
                 heading = None
 
+    @staticmethod
+    def _share_height(kids):
+        # Each image gets width in proportion to its aspect ratio, so every
+        # image in the row ends up the same height. If any image can't be
+        # measured the row keeps equal widths (undistorted, just not
+        # height-matched).
+        imgs = [k if k.tag == "img" else k[0] for k in kids]
+        sizes = [image_size(img.get("src", "")) for img in imgs]
+        if not all(sizes):
+            return
+        for k, img, (w, h) in zip(kids, imgs, sizes):
+            img.set("width", str(w))
+            img.set("height", str(h))
+            # x100 keeps the total above 1; below that, flex leaves a gap
+            k.set("style", f"flex-grow: {100 * w / h:.2f}")
+
 
 class RobotRepoExtension(Extension):
     def extendMarkdown(self, md):
         md.registerExtension(self)
+        md.preprocessors.register(ListAfterText(md), "list_after_text", 25)
         md.parser.blockprocessors.register(EmbedProcessor(md.parser), "embed", 18)
         md.inlinePatterns.register(CiteInline(r"\[\^(\d+)\]", md), "cite", 175)
         md.treeprocessors.register(TidyTree(md), "robotrepo_tidy", 15)
@@ -386,6 +508,7 @@ REDIRECT_HTML = """<!DOCTYPE html>
 
 
 def on_post_build(config):
+    _save_sizes()
     base = config.site_url or ""
     for old, new in (config.extra.get("redirects") or {}).items():
         dest = Path(config.site_dir) / old

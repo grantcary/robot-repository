@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "mkdocs-claude-branch",
-      "runtimeExecutable": "/tmp/claude-1000/-home-grant-agentic-robot-repository/bdcf948b-9616-4b28-afab-d041159adacf/scratchpad/venv/bin/mkdocs",
-      "runtimeArgs": ["serve", "-f", "/home/grant/agentic/robot-repository/mkdocs.yml", "-a", "127.0.0.1:8000", "-w", "/home/grant/agentic/robot-repository/theme", "-w", "/home/grant/agentic/robot-repository/hooks"],
-      "port": 8000
+      "name": "mkdocs",
+      "runtimeExecutable": "/home/grant/agentic/robot-repository/.venv/bin/mkdocs",
+      "runtimeArgs": ["serve", "-f", "/home/grant/agentic/robot-repository/mkdocs.yml", "-a", "localhost:8001", "-w", "/home/grant/agentic/robot-repository/theme", "-w", "/home/grant/agentic/robot-repository/hooks"],
+      "port": 8001
     }
   ]
 }

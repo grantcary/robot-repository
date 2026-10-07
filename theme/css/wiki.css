@@ -269,18 +269,21 @@ img { max-width: 100%; height: auto; }
 .article li { margin-bottom: .35rem; }
 .article li > h4:first-child { margin-top: .6rem; }
 
-/* images: one on its own line is centred; several on a line sit side by side */
+/* images: one on its own line is centred; several on a line sit side by side.
+   The build sets each image's flex-grow to its aspect ratio, so the row
+   fills the width and every image comes out the same height. */
 .article p.figure { text-align: center; margin: 1rem 0; }
 .article p.figure img { display: block; margin: 0 auto; }
 
 .article p.gallery {
   display: flex;
+  align-items: flex-start; /* never stretch an image to the tallest one */
   gap: 0;
   margin: 1rem 0;
 }
 .article p.gallery > *,
 .article p.gallery > a { flex: 1 1 0; min-width: 0; }
-.article p.gallery img { display: block; width: 100%; }
+.article p.gallery img { display: block; width: 100%; height: auto; }
 
 /* video embeds (YouTube, archive.org, plain files); ratio is set inline */
 .embed {
